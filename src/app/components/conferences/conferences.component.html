@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h2 class="font-weight-bold">Ongoing Conferences</h2>
+
+      <mat-accordion *ngIf="conferences.length > 0">
+        <mat-expansion-panel mdbWavesEffect *ngFor="let conference of conferences" class="grey lighten-5">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="font-weight-bold">
+              {{conference.conferencename}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p><span class="font-weight-bolder">&nbsp;Conference Chair:</span> {{conference.conferencechairName}}</p>
+
+          <mat-action-row>
+            <button type="button" mdbBtn class="grey darken-1" [routerLink]="['/conference', conference._id]" mdbWavesEffect>View</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <p *ngIf="conferences.length == 0">No ongoing conferences</p>
+
+</div>
