@@ -1,0 +1,26 @@
+<div class="container">
+  <h2 class="display-4 mt-2">Your Papers</h2>
+  
+  <div class="row">
+    <mdb-card class="w-100 mt-3 mb-3" *ngFor="let paper of papers">
+  <mdb-card-body>
+    <mdb-card-title>
+      <h5 class="font-weight-bold">{{paper.papername}}</h5>
+    </mdb-card-title>
+    <mat-form-field class="mr-2 conferenceForm">
+        <mat-select matInput placeholder="Paper Name" [formControl]="conference">
+          <mat-option *ngFor="let option of conferenceOptions" [value]="option._id">{{option.conferencename}} by {{option.conferencechairName}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="conference.invalid">You must add a name</mat-error>
+      </mat-form-field>
+      <button mdbBtn color="primary" class="mr-5" (click)="addToConference(paper)">Add To Conference</button>
+    <a href="#!" mdbBtn class="grey darken-1" [routerLink]="['/paper', paper._id]">View</a>
+    <button mdbBtn color="danger" (click)="deletePaper(paper)">Delete</button>
+  </mdb-card-body>
+</mdb-card>
+  </div>
+  
+  
+</div>
+
+
