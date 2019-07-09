@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <mat-card class="col-lg-4">
+      <mat-card-title>{{profilename}}</mat-card-title>
+      <mat-card-subtitle>@{{profileusername}}</mat-card-subtitle>
+      <mat-card-subtitle class="font-weight-bold">{{profilelevel}}</mat-card-subtitle>
+      <mat-card-actions>
+        <button mdbBtn mdbWavesEffect class="grey darken-1">Edit</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <div class="col-lg-8">
+      <mat-card>
+        <mat-card-title>Start Conference</mat-card-title>
+          <mat-form-field class="conferenceForm">
+            <input matInput placeholder="Conference Name" [formControl]="conferencename">
+            <mat-error *ngIf="conferencename.invalid">You must add a name</mat-error>
+          </mat-form-field>
+          <mat-form-field class="conferenceForm">
+              <textarea matInput hintLabel="Optional" placeholder="Conference Desc" [formControl]="conferencedesc"></textarea>
+            </mat-form-field>
+
+          <button mdbBtn mdbWavesEffect class="grey darken-1" (click)="submitConference()">Add Conference</button>
+      </mat-card>
+      <br>
+
+      <mat-card>
+          <mat-card-title>Add Paper</mat-card-title>
+            <mat-form-field class="conferenceForm">
+              <input matInput placeholder="Paper Name" [formControl]="papername">
+              <mat-error *ngIf="papername.invalid">You must add a name</mat-error>
+            </mat-form-field>
+            <input type="file" accept="application/pdf" placeholder="Paper" (change)="loadFile($event.target.files)">
+            
+  
+            <button mdbBtn mdbWavesEffect class="grey darken-1" (click)="uploadPaper()">Add Paper</button>
+        </mat-card>
+    </div>
+  </div>
+</div>
