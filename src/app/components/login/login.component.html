@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="row justify-content-md-center mt-2">
+
+    <mat-card class="col-md-6">
+    <mat-toolbar class="">
+      <span>Sign In</span>
+    </mat-toolbar>
+    <div class="mt-5">
+      <mat-form-field hintLabel="This would be used to look you up"> 
+        <input matInput placeholder="Username" [formControl]="username" maxlength="10"/>
+        <span matPrefix>@</span>
+        <mat-error *ngIf="username.invalid">{{getUsernameErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <div class="w-100"></div>
+      <mat-form-field hintLabel="Minimum password length is 8 characters" class="mt-3 mb-2"> 
+        <input type="password" matInput placeholder="Password" [formControl]="password"/>
+        <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <div class="w-100"></div>
+  
+      <button mdbBtn class="grey darken-1" (click)="signUser()">Login</button>
+    </div>
+  </mat-card>
+
+  </div>
+
+  
+      
+        
+      
+  </div>
